@@ -1,9 +1,8 @@
-
-
 var currentTempEL = document.getElementById("temperature");
 var currentHumidityEL = document.getElementById("humidity");
 var currentWindEL = document.getElementById("wind-speed");
-var currentCityEL = document.getElementById("city-name")
+var currentCityEL = document.getElementById("city-name");
+var currentIconEL = document.getElementById("icon");
 
 var todayWeather = document.getElementById("today-weather");
 var fiveDay = document.getElementById("five-day-forecast");
@@ -63,12 +62,13 @@ function getForecastWeather(cityName) {
 
             displayCurrentData(currentData);
             displayForecastData(forecastArray);
-
+            localStorage.setItem("displayCurrentData", JSON.stringify(displayCurrentData));
 
         })
 
 }
 function displayCurrentData(data) {
+
     currentCityEL.textContent = data.city.name
     currentTempEL.textContent = data.list[0].main.temp
     currentWindEL.textContent = data.list[0].wind.speed
@@ -76,13 +76,11 @@ function displayCurrentData(data) {
 
 }
 
-
 var displayEL = document.getElementsByClassName("card-body");
 // var newP = document.createElement("p")
 function displayForecastData(data) {
 
-    // for (var i = 0; i < data.length; i++) {
-
+    // for (var i = 0; i < data.length; i++) 
 
 
     // citiesSearchTerm.textContent = searchTerm;
